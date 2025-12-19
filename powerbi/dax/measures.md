@@ -35,9 +35,9 @@ Dealer Performance Analysis
 
 Monthly Trend Analysis
 
-## Total Requests 
+Total Requests
 
-```DAX
+DAX
 
 Total Requests =
 COUNT ( 'Fact_PurchaseRequests'[RecordID] )
@@ -58,9 +58,9 @@ Overview Page
 
 Dealer Analysis Page
 
-## Total Customers
+Total Customers
 
-```DAX
+DAX
 
 Total Customers =
 DISTINCTCOUNT ( 'Fact_PurchaseRequests'[CustomerRef] )
@@ -81,9 +81,9 @@ Overview Page
 
 Customer Analysis Page
 
-## Sum of Quantity
+Sum of Quantity
 
-```DAX
+DAX
 
 Sum of Quantity =
 SUMX (
@@ -107,9 +107,9 @@ Overview Page
 
 Product Analysis Visuals
 
-## Average DownPayment per Car
+Average DownPayment per Car
 
-```DAX
+DAX
 
 Avg DownPayment per Car =
 DIVIDE (
@@ -134,9 +134,9 @@ Overview Page
 
 Car Model Comparison
 
-## Average DownPayment per Request
+Average DownPayment per Request
 
-```DAX
+DAX
 
 Avg DownPayment per Request =
 DIVIDE (
@@ -161,10 +161,9 @@ Overview Page
 
 Dealer Detail Page
 
-## Car DownPayment Share %
+Car DownPayment Share %
 
-```DAX
-
+DAX
 Car DownPayment Share % =
 DIVIDE (
     [Sum of DownPayment],
