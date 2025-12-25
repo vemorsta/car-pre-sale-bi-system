@@ -10,160 +10,174 @@ placeholder logic is included.
 
 ## Sum of DownPayment
 
-```DAX
+```sql
 Sum of DownPayment =
 SUMX (
     'Fact_PurchaseRequests',
     VALUE ( TRIM ( 'Fact_PurchaseRequests'[DownPayment] ) )
 )
-Description
+```
+**Description**
 Calculates the total amount of down payments collected from customers.
 
-Business Usage
+**Business Usage**
 
-Primary financial KPI
+-Primary financial KPI
 
-Revenue-oriented performance evaluation
+-Revenue-oriented performance evaluation
 
-Base measure for derived metrics
+-Base measure for derived metrics
 
-Used In
+**Used In**
 
-Overview Page (KPI Card)
+-Overview Page (KPI Card)
 
-Dealer Performance Analysis
+-Dealer Performance Analysis
 
-Monthly Trend Analysis
+-Monthly Trend Analysis
 
-Total Requests
+---
 
-DAX
+## Total Requests
 
+```sql
 Total Requests =
 COUNT ( 'Fact_PurchaseRequests'[RecordID] )
-Description
+```
+**Description**
 Counts the total number of purchase requests recorded in the system.
 
-Business Usage
+**Business Usage**
 
-Demand volume analysis
+-Demand volume analysis
 
-Operational workload monitoring
+-Operational workload monitoring
 
-Dealer activity comparison
+-Dealer activity comparison
 
-Used In
+**Used In**
 
-Overview Page
+-Overview Page
 
-Dealer Analysis Page
+-Dealer Analysis Page
 
-Total Customers
+---
 
-DAX
+## Total Customers
 
+```sql
 Total Customers =
 DISTINCTCOUNT ( 'Fact_PurchaseRequests'[CustomerRef] )
-Description
+```
+**Description**
 Calculates the number of unique customers while avoiding duplicate counts.
 
-Business Usage
+**Business Usage**
 
-Customer base analysis
+-Customer base analysis
 
-Accurate buyer identification
+-Accurate buyer identification
 
-Prevention of inflated metrics
+-Prevention of inflated metrics
 
-Used In
+**Used In**
 
-Overview Page
+-Overview Page
 
-Customer Analysis Page
+-Customer Analysis Page
 
-Sum of Quantity
+---
 
-DAX
+## Sum of Quantity
 
+
+```sql
 Sum of Quantity =
 SUMX (
     'Fact_PurchaseRequests',
     VALUE ( TRIM ( 'Fact_PurchaseRequests'[Quantity] ) )
 )
-Description
+```
+**Description**
 Calculates the total number of vehicles requested.
 
-Business Usage
+**Business Usage**
 
-Product demand evaluation
+-Product demand evaluation
 
-Vehicle volume tracking
+-Vehicle volume tracking
 
-Input for average-based KPIs
+-Input for average-based KPIs
 
-Used In
+**Used In**
 
-Overview Page
+-Overview Page
 
-Product Analysis Visuals
+-Product Analysis Visuals
 
-Average DownPayment per Car
+---
 
-DAX
+## Average DownPayment per Car
 
+```sql
 Avg DownPayment per Car =
 DIVIDE (
     [Sum of DownPayment],
     [Sum of Quantity],
     0
 )
-Description
+```
+**Description**
 Calculates the average down payment per vehicle.
 
-Business Usage
+**Business Usage**
 
-Pricing behavior analysis
+-Pricing behavior analysis
 
-Identification of high-value car models
+-Identification of high-value car models
 
-Market segmentation insights
+-Market segmentation insights
 
-Used In
+**Used In**
 
-Overview Page
+-Overview Page
 
-Car Model Comparison
+-Car Model Comparison
 
-Average DownPayment per Request
+---
 
-DAX
+## Average DownPayment per Request
 
+```sql
 Avg DownPayment per Request =
 DIVIDE (
     [Sum of DownPayment],
     [Total Requests],
     0
 )
-Description
+```
+**Description**
 Calculates the average down payment per purchase request.
 
-Business Usage
+**Business Usage**
 
-Customer payment behavior analysis
+-Customer payment behavior analysis
 
-Financial profiling of buyers
+-Financial profiling of buyers
 
-Trend monitoring
+-Trend monitoring
 
-Used In
+**Used In**
 
-Overview Page
+-Overview Page
 
-Dealer Detail Page
+-Dealer Detail Page
 
-Car DownPayment Share %
+---
 
-DAX
+## Car DownPayment Share %
+
+```sql
 Car DownPayment Share % =
 DIVIDE (
     [Sum of DownPayment],
@@ -173,22 +187,24 @@ DIVIDE (
     ),
     0
 )
-Description
+```
+**Description**
 Calculates each car model’s contribution to the total down payment amount.
 
-Business Usage
+**Business Usage**
 
-Market share analysis
+-Market share analysis
 
-Identification of top-performing products
+-Identification of top-performing products
 
-Strategic product planning
+-Strategic product planning
 
-Used In
+**Used In**
 
-Overview Page (Donut Chart)
+-Overview Page (Donut Chart)
 
-Product Share Analysis
+-Product Share Analysis
+
 
 Notes
 All measures are built on the Fact_PurchaseRequests table.
@@ -197,12 +213,12 @@ Data cleansing is performed in both SQL Server and Power Query.
 
 Measures support multi-dimensional analysis across:
 
-Time
+-Time
 
-Dealer
+-Dealer
 
-Customer
+-Customer
 
-Car Model
+-Car Model
 
-Geography
+-Geography
